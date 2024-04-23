@@ -124,7 +124,7 @@ func LoadQ2Data() {
 	startTime = time.Now()
 	startID = 1
 	for i := 0; i < connectionCount; i++ {
-		go runQ2BucketDataLoads(connections[i], pDataChan, appconfig.ConfigData.GoRoutines, startID, sensorsCount, true)
+		go runQ2BucketDataLoads(connections[i], pDataChan, routineCount, startID, sensorsCount, true)
 		startID += sensorsCount
 	}
 	for i := 0; i < connectionCount; i++ {

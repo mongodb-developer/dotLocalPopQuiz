@@ -2,18 +2,14 @@ package appconfig
 
 import (
 	"os"
-	"strconv"
 
 	"github.com/joho/godotenv"
 )
 
 // AppConfig contains config settings
 type AppConfig struct {
-	URI         string
-	DBName      string
-	Debug       bool
-	Connections int
-	GoRoutines  int
+	URI    string
+	DBName string
 }
 
 // ConfigData contains application configuration settings read from a JSON formatted file.
@@ -27,7 +23,4 @@ func LoadAppConfig() {
 
 	ConfigData.URI = os.Getenv("MONGODB_URI")
 	ConfigData.DBName = os.Getenv("MONGODB_DB_NAME")
-	ConfigData.Debug, _ = strconv.ParseBool(os.Getenv("MONGODB_DEBUG"))
-	ConfigData.Connections, _ = strconv.Atoi(os.Getenv("MONGODB_CONNECTIONS"))
-	ConfigData.GoRoutines, _ = strconv.Atoi(os.Getenv("MONGODB_GOROUTINES"))
 }
